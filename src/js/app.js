@@ -1,5 +1,5 @@
-var fruitApp = angular.module('fruitApp', ['ui.router', 'akoenig.deckgrid']);
-var baseUrl = "http://localhost:9001/src";
+var fruitApp = angular.module('fruitApp', ['ngAnimate', 'ui.router', 'akoenig.deckgrid']);
+var baseUrl = "http://localhost:9001/src/";
 
 fruitApp.config(function ($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/home");
@@ -29,19 +29,19 @@ fruitApp.config(function ($stateProvider, $urlRouterProvider) {
 		})
 	  .state('home.meat', {
 			url: '/home-meat',
-			templateUrl: baseUrl + '/tpls/home-meat.html'
+			templateUrl: baseUrl + 'tpls/home-meat.html'
 		})
 	  .state('home.milk', {
 			url: '/home-milk',
-			templateUrl: baseUrl + '/tpls/home-milk.html'
+			templateUrl: baseUrl + 'tpls/home-milk.html'
 		})
 	.state('login', {
 		url: '/login',
-		templateUrl: baseUrl + '/tpls/login.html'
+		templateUrl: baseUrl + 'tpls/login.html'
 	})
 	.state('detail', {
 		url: '/detail',
-		templateUrl: baseUrl + '/tpls/detail.html'
+		templateUrl: baseUrl + 'tpls/detail.html'
 	})
 
 });

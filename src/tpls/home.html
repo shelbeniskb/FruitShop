@@ -4,7 +4,28 @@
 		<div class="row">
 		<div class="col-md-12">
 		<div class="col-md-10 col-md-offset-1">
-			<div>This space is left for Ad!</div><br>
+			<div ng-controller="NavADCtrl">
+				<div class="container slider">
+					<image ng-repeat="slide in slides" class="slide slide-animation" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)"  ng-src="{{slide.image}}"></image>
+				<a href="#" class="arrow prev" ng-click="prevSlide()"></a>
+				<a href="#" class="arrow next" ng-click="nextSlide()"></a>
+				<nav class="nav">
+					<div class="wrapper">
+						<ul class="dots">
+							<li class="dot" ng-repeat="slide in slides">
+								<a href="#" ng-class="{active: isCurrentSlideIndex($index)}"
+									ng-click="setCurrentSlideIndex($index)">{{slide.description}}</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				</div>
+			</div>
+			<br>
+
+
+
+
 			<a ui-sref="home.fruit">fruit product</a><br>
 			<a ui-sref="home.meat">meat product</a><br>
 			<a ui-sref="home.milk">milk product</a><br>
