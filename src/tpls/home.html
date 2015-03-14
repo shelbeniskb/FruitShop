@@ -21,16 +21,31 @@
 				</nav>
 				</div>
 			</div>
-			<br>
 
 
-
-
+<!-- 
 			<a ui-sref="home.fruit">fruit product</a><br>
 			<a ui-sref="home.meat">meat product</a><br>
-			<a ui-sref="home.milk">milk product</a><br>
+			<a ui-sref="home.milk">milk product</a><br> -->
 		<div  ui-view>
 		</div>
+
+
+		<!-- <div class="filter-footer" ng-controller="FilterCtrl">
+			<div ng-click="showFilterPanel()">
+				<img class="filter-image" src="http://localhost:9001/src/image/filter.png">
+			</div> 
+			</div>
+		-->
+			<div class="circular-filter" ng-controller="FilterCtrl">
+				<div class="circle" ng-class="{open: isFilterPanelShow}">
+					<a ng-repeat="item in items" ui-sref="{{item.sref}}"><i class="{{item.norclass}}" ng-class="{selected: isCurrentItemSelect($index)}" ng-click="selectItem($index)"></i></a><!-- 
+					<a ui-sref="home.fruit"><i class="font-icon fa fa-apple" ng-class="{selected: isFirstSelect()}"></i></a>
+					<a ui-sref="home.meat"><i class="font-icon fa fa-birthday-cake"></i></a>
+					<a ui-sref="home.milk"><i class="font-icon fa fa-coffee"></i></a> -->
+				</div>
+				<div class="filter-menu" ng-click="showFilterPanel()"><i class="font-icon fa fa-filter"></i></div>
+			</div>
 <!-- 		</div>
 		</div>
 	</div>
