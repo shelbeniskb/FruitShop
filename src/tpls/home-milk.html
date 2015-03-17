@@ -1,1 +1,10 @@
-<div style="background-color:green">yangreduo!</div>
+<div>
+	<div deckgrid class="deckgrid clearfix" source="photos" cardTemplate="tpls/deckgrid-card.html" >
+	    <div data-ng-repeat="column in columns">
+	    	<div data-ng-repeat="card in column" data-ng-include="cardTemplate">
+	    		
+	    	</div>
+	    </div>
+	</div>
+</div>
+
