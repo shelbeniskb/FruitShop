@@ -93,3 +93,23 @@
 .font-icon.fa.selected {
 	color: red;
 }
+
+.shop-cart-container {
+	width: 100px;
+	height: 100px;
+	position: fixed;
+	bottom: 75px;
+	right: 10px;
+	background: red;	
+}
+
+.item-counter {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background: red;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	text-align: center;
+}

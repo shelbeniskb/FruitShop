@@ -1,25 +1,21 @@
 var fruitApp = angular.module('fruitApp', ['ngAnimate', 'ui.router', 'akoenig.deckgrid']);
 var baseUrl = "http://localhost:9001/src/";
 
-fruitApp.controller('RootCtrl', ['$scope', function ($scope) {
+fruitApp.controller('RootCtrl', function ($scope, cartService) {
 	$scope.showMyName = function() {
-		console.log('i am root controller');
+		var hkb = cartService.getAllItems();
+		console.log(hkb);
 	}
-}]);
+});
 
 
 fruitApp.config(function ($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise("/home");
+	$urlRouterProvider.otherwise("/home/home-fruit");
 
 	$stateProvider
 	.state('home', {
 		url: '/home',
-		templateUrl: baseUrl + '/tpls/home.html',
-		controller: function($scope) {
-			$scope.onViewLoad = function() {
-				console.log('fruit view back!')
-			}
-		}
+		templateUrl: baseUrl + '/tpls/home.html'
 	}).state('home.fruit', {
 			url: '/home-fruit',
 			templateUrl: baseUrl + '/tpls/home-fruit.html',
@@ -70,17 +66,41 @@ fruitApp.config(function ($stateProvider, $urlRouterProvider) {
 
 });
 
-fruitApp.controller('FruitCtrl', function ($scope, fetchData) {
+fruitApp.controller('FruitCtrl', function ($scope, fetchData, cartService) {
 	console.log(fetchData)
 	$scope.photos = fetchData.data;	
+	$scope.dealClick = function(card) {
+		card.show = !card.show;
+		if (card.show) {
+			cartService.putOneItem(card);
+		} else {
+			cartService.removeOneItem(card.id);
+		}
+	}
 })
 
-fruitApp.controller('MeatCtrl', function ($scope, fetchData) {
+fruitApp.controller('MeatCtrl', function ($scope, fetchData, cartService) {
 	console.log(fetchData)
-	$scope.photos = fetchData.data;	
+	$scope.photos = fetchData.data;
+	$scope.dealClick = function(card) {
+		card.show = !card.show;
+		if (card.show) {
+			cartService.putOneItem(card);
+		} else {
+			cartService.removeOneItem(card.id);
+		}
+	}	
 })
 
-fruitApp.controller('MilkCtrl', function ($scope, fetchData) {
+fruitApp.controller('MilkCtrl', function ($scope, fetchData, cartService) {
 	console.log(fetchData)
-	$scope.photos = fetchData.data;	
+	$scope.photos = fetchData.data;
+	$scope.dealClick = function(card) {
+		card.show = !card.show;
+		if (card.show) {
+			cartService.putOneItem(card);
+		} else {
+			cartService.removeOneItem(card.id);
+		}
+	}
 })
