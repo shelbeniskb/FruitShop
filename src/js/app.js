@@ -60,8 +60,14 @@ fruitApp.config(function ($stateProvider, $urlRouterProvider) {
 		templateUrl: baseUrl + 'tpls/login.html'
 	})
 	.state('detail', {
-		url: '/detail',
-		templateUrl: baseUrl + 'tpls/detail.html'
+		url: '/detail?card',
+		templateUrl: baseUrl + 'tpls/detail.html',
+		controller: function($scope, $state, $stateParams) {
+			var card = $stateParams.card;
+			if (!!card) {
+				console.log(card);
+			}
+		}
 	})
 
 });

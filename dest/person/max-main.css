@@ -1,0 +1,14 @@
+.header {
+	width: 990px;
+	margin: 0 auto;
+	text-align: center;
+	font-family: fantasy;
+	font-size: 23px;
+	color:red;
+}
+.container {
+	width: 990px;
+	height: 2000px;
+	margin: 0 auto;
+	background: green;
+}
